@@ -35,12 +35,14 @@ public class HashCodeUtil {
 	 * Internal Method having the logic for calculating the hashcode
 	 */
 	static private int getHashCodeInternal(String string){
+		if(string != null && string.length()>0){
 		char[] stringToChar = string.toCharArray();
 		int hashCode= 0;
 		for (int i =0;i<stringToChar.length;i++) {
 			hashCode = hashCode + asciiValues[stringToChar[i]]+stringToChar[i]*i;
 		}
 			hashCode = (hashCode*multiplier)/divident;
+		}
 		return Math.abs(hashCode+stringToChar.length);
 	}
 	
